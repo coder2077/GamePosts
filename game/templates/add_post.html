@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Games | Login
+{% endblock %}
+
+
+{% block content %}
+
+<br/>
+<h2 style="text-align: center;">Add Post</h2>
+
+<body class="text-center">
+    <div class="container">
+        <form method="POST" enctype=multipart/form-data class="form-post" style="color:white">
+            {{ form.hidden_tag() }}
+            <br>
+            <p>{{ form.title.label() }}</p>
+            {{ form.title(class="form-control", placeholder="Title") }}
+            <br/>
+            <p><label>Upload image</label></p>
+            <input type=file name=file accept="image/*" class="form-control">
+            <br>
+            <p>{{ form.description.label() }}</p>
+            {{ form.description(class="form-control", placeholder="Description", style="height: 130px") }}
+            <br>
+            {{ form.submit(class="btn btn-lg btn-success") }}
+            <br/><br/><br/>
+        </form>
+    </div>
+</body>
+
+{% endblock %}

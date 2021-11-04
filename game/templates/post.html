@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Games | {{ post.title }}
+{% endblock %}
+
+{% block content %}
+<p><strong>Author:</strong> <a href="/user/{{ post.author }}">{{ post.author }}</a></p>
+<div class="card mb-3">
+    <img src="/static/{{ post.image }}" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p class="card-text" style="color: black;">{{ post.description }}</p>
+    </div>
+  </div>
+<br/><br/>
+
+<a type="button" href="{{ url_for('main.index_page') }}"  class="btn btn-secondary">Back</a>
+<br/><br/><br/><br/>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Games | Login
+{% endblock %}
+
+{% block content %}
+<br/>
+<h2 style="text-align: center;">Login to your account</h2>
+
+<body class="text-center">
+    <div class="container">
+        <form method="POST" class="form-login" style="color:white">
+            {{ form.hidden_tag() }}
+            <br>
+            <p>{{ form.username.label() }}</p>
+            {{ form.username(class="form-control", placeholder="User Name") }}
+            <br/>
+            <p>{{ form.password.label() }}</p>
+            {{ form.password(class="form-control", placeholder="Password") }}
+            <br>
+            {{ form.submit(class="btn btn-lg btn-success") }}
+            <br/><br/>
+            <a href="{{ url_for('auth.register_page') }}">Haven't got still account? Register</a>
+            <br/><br/><br/>
+        </form>
+    </div>
+</body>
+{% endblock %}

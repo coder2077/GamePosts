@@ -9,7 +9,7 @@ UPLOAD_FOLDER = 'game/static/'
 app = Flask(__name__, static_url_path='/static')
 app.config['SECRET_KEY'] = 'ec9439cfc6c796ae2029594d'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://bbdcxzzgwyvnrn:e9d794a2cb60bf0b17d2353dda12e0737fbcc91968576f45cc96e8cbacad16c4@ec2-3-221-100-217.compute-1.amazonaws.com:5432/da373s8i717sg6'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://vfyexxsiwwkfbr:7d1ec3ccbab9f022c9fc76da6c89206f2e0e43b2abff1389c35bf827b2c9889a@ec2-52-201-168-60.compute-1.amazonaws.com:5432/ddepfiifi1k3oc'
 app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png']
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.app_context()

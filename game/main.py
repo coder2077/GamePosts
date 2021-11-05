@@ -2,7 +2,7 @@ import os
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import current_user
 from .forms import PostForm
-from game import db, UPLOAD_FOLDER
+from game import db
 from .models import Post, User
 from uuid import uuid4
 
@@ -16,6 +16,9 @@ main = Blueprint('main', __name__)
 @main.route('/home')
 def index_page():
 	posts = Post.query.all()
+	for datas in posts:
+		with open(f'game/static/image_{datas.id}.jpg', 'wb') as f:
+			images = f.write(datas.image)
 	return render_template('index.html', posts=posts)
 
 
@@ -44,7 +47,10 @@ def add_post_page():
 		if file:
 			filename = f'{uuid4()}.jpg'
 			file.save(os.path.join('game/static/', filename))
-			new_post = Post(title=title, description=description, image=filename, author=author)
+			with open(f'game/static/{filename}', 'rb') as f:
+				file_data = f.read()
+			os.remove(f'game/static/{filename}')
+			new_post = Post(title=title, description=description, image=file_data, author=author)
 			db.session.add(new_post)
 			db.session.commit()
 			return redirect(url_for('main.index_page'))
@@ -79,6 +85,8 @@ def post_page(id):
 	post = Post.query.filter_by(id=id).first()
 
 	if post:
+		with open(f'game/static/image_{post.id}.jpg', 'wb') as f:
+			images = f.write(post.image)
 		return render_template('post.html', post=post)
 
 	else:

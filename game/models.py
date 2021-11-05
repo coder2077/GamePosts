@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(length=50), nullable=False, unique=False)
-    image = db.Column(db.String(length=100), nullable=False, unique=False)
+    image = db.Column(db.LargeBinary(), nullable=False, unique=False)
     author = db.Column(db.String(length=60), nullable=False, unique=False)
     description = db.Column(db.String(length=3000), nullable=False, unique=False)
 

@@ -3,15 +3,13 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
 
-UPLOAD_FOLDER = 'game/static/'
 
 # init SQLAlchemy so we can use it later in our models
-app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__)
 app.config['SECRET_KEY'] = 'ec9439cfc6c796ae2029594d'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://vfyexxsiwwkfbr:7d1ec3ccbab9f022c9fc76da6c89206f2e0e43b2abff1389c35bf827b2c9889a@ec2-52-201-168-60.compute-1.amazonaws.com:5432/ddepfiifi1k3oc'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://dpuiqcxkehbndo:51e10441db80201464b871b3f4a1374354eac5bbc8db4775d5929220bcd9a6ef@ec2-18-207-72-235.compute-1.amazonaws.com:5432/dcea9gebgng3mu'
 app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png']
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.app_context()
 db = SQLAlchemy(app)
 
